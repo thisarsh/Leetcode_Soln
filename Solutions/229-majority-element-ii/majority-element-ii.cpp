@@ -9,8 +9,8 @@ public:
         }
         nums.clear();
 
-        for(auto it:mpp){
-            if(it.second>(n/3)) nums.push_back(it.first);
+        for(auto it            :mpp){
+if(it.second>(n/3)) nums.push_back(it.first);
         }
         return nums;
 
