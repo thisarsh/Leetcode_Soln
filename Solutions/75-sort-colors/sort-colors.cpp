@@ -1,18 +1,24 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int l = nums.size(), temp, min;
-        for (int i = 0; i < l - 1; i++) {min = nums[i];
-            for (int j = i + 1; j < l; j++) {
-                if (nums[j] < min) {
-                    temp = nums[j];
-                    nums[j] = min;
-                    min = temp;
-                }
-            } nums[i]=min;
+       int s1=0,s2=0,s0=0;
+       for(int i=0; i<nums.size();i++){
+        if(nums[i]==0)s0++;
+        else if(nums[i]==1)s1++;
+        else s2++;
+       }
+       for(int i=0; i<nums.size();i++){
+        if(s0>0){
+            nums[i]=0;
+            s0--;
         }
-
-        for (auto it : nums)
-            cout << it << " ";
+        else if(s1>0){
+            nums[i]=1;
+            s1--;
+        }
+        else nums[i]=2;
+    
+        
+       }
     }
 };
