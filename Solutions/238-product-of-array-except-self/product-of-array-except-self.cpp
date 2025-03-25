@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        int n=nums.size(),p=0,lp=1,rp=1;
+        int n=nums.size(),lp=1,rp=1;
         vector <int> lp_hash(n,1);
         vector <int> rp_hash(n,1);
         vector <int> ans_hash(n,1);
