@@ -10,7 +10,7 @@ public:
             }
 
         }
-        // if (index=-1) return n;
+        
          for(int i=index;i>=0;i--){
             if(s[i]!=' ')
             l++;
