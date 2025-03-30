@@ -3,7 +3,7 @@ public:
     int singleNumber(vector<int>& nums) {
     //hashing by maps
     int n=nums.size();
-    map <int,int> mpp;
+    unordered_map <int,int> mpp;
     for (auto it:nums){
         mpp[it]++;
     }    
