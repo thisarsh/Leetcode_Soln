@@ -11,9 +11,7 @@ public:
             if(s[i]!=' '){
                
                 temp+=s[i];
-
-
-                
+   
             }
             else if (s[i]==' ' ){
                 reverse(temp.begin(),temp.end());
