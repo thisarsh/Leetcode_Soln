@@ -15,7 +15,7 @@ public:
 
     string firstPalindrome(vector<string>& words) {
         int n=words.size();
-      for(auto it: words){
+      for(auto &it: words){
         if(chk(it)==1)return it;
       }
   return "";
