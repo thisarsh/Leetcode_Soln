@@ -1,15 +1,15 @@
 class Solution {
 public:
      bool chk(const string &s){
-            int flag=1,i=0,j=s.size()-1;
+            int i=0,j=s.size()-1;
             
             while(i<j){
-                if(s[i]!=s[j]){flag=0;break;}
+                if(s[i]!=s[j]){return 0;}
                 i++;
                 j--;
             }
-            if (flag==1)return 1;
-            else return 0;
+            return 1;
+        
             
         }
 
