@@ -1,6 +1,6 @@
 class Solution {
 public:
-     bool chk(string s){
+     bool chk(const string &s){
             int flag=1,i=0,j=s.size()-1;
             
             while(i<j){
