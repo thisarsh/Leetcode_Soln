@@ -1,9 +1,12 @@
 class Solution {
 public:
      bool chk(string s){
-            int flag=1;
-            for(int i=0; i<=s.size()/2; i++){
-                if(s[i]!=s[s.size()-i-1]){flag=0;break;}
+            int flag=1,i=0,j=s.size()-1;
+            
+            while(i<j){
+                if(s[i]!=s[j]){flag=0;break;}
+                i++;
+                j--;
             }
             if (flag==1)return 1;
             else return 0;
