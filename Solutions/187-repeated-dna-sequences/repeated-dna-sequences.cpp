@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) {
-        int n=s.size(),l=0,r=0;
+        int n=s.size();
         string s1=s.substr(0,10);
         unordered_map <string,int> hash;
         vector <string> ans;
