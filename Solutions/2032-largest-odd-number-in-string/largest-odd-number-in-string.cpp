@@ -7,8 +7,8 @@ public:
                 return num;
             }
     
-                num.erase(num.begin()+i);
-                // num.pop_back();
+                // num.erase(num.begin()+i);
+                num.pop_back();
             
         }
         return num;
