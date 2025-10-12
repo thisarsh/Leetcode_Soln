@@ -1,44 +1,40 @@
 class Solution {
 public:
-    int findFirst(vector<int>& nums, int target) {
-        int low = 0, high = nums.size() - 1, ans = -1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (nums[mid] == target) {
-                ans = mid;
-                high = mid - 1;  // keep searching left
-            } 
-            else if (nums[mid] < target) {
-                low = mid + 1;
-            } 
-            else {
-                high = mid - 1;
+    int lower(vector <int> &nums,int target){
+        int n=nums.size();
+        int low=0,high=n-1,mid,poss=-1;
+        while(low<=high){
+            mid=low+(high-low)/2;
+            if(nums[mid]==target){
+                poss=mid;
+                high=mid-1;
             }
-        }
-        return ans;
-    }
-
-    int findLast(vector<int>& nums, int target) {
-        int low = 0, high = nums.size() - 1, ans = -1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (nums[mid] == target) {
-                ans = mid;
-                low = mid + 1;   // keep searching right
-            } 
-            else if (nums[mid] < target) {
-                low = mid + 1;
-            } 
-            else {
-                high = mid - 1;
+            else if(nums[mid]>target){
+                high=mid-1;
             }
-        }
-        return ans;
-    }
+            else low=mid+1;
 
+        }
+        return poss;
+    }
+    int upper(vector <int> &nums,int target){
+        int n=nums.size();
+        int low=0,high=n-1,mid,poss=-1;
+        while(low<=high){
+            mid=low+(high-low)/2;
+            if(nums[mid]==target){
+                poss=mid;
+                low=mid+1;
+            }
+            else if(nums[mid]>target){
+                high=mid-1;
+            }
+            else low=mid+1;
+
+        }
+        return poss;
+    }
     vector<int> searchRange(vector<int>& nums, int target) {
-        int first = findFirst(nums, target);
-        int last = findLast(nums, target);
-        return {first, last};
+        return {lower(nums,target),upper(nums,target)};
     }
 };
