@@ -8,7 +8,8 @@ public:
             mid=low+(high-low)/2;
             ans=0;
             for(auto i:piles){
-                ans+=ceil(double(i)/mid);
+                ans += (i + mid - 1) / mid;
+
             }
             if(ans<=h){
                 high=mid-1;
