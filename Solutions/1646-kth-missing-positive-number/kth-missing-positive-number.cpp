@@ -1,17 +1,22 @@
 class Solution {
 public:
-    int findKthPositive(vector<int>& nums, int k) {
-        int n=nums.size(),count=1;
-        // unordered_set <int> st (nums.begin(),nums.end());
-        vector <int> hash(2001,0);
-        for(auto it:nums){
-         hash[it]=1;
+    int findKthPositive(vector<int>& arr, int k) {
+        int n=arr.size();
+        int low=0,high=n-1;  int ans=arr.size();
+        while(low<=high){
+           int mid=low+(high-low)/2;
+         
+     
+           if(arr[mid]-mid-1<k){
+            low=mid+1;
+           }
+           else{
+            ans=mid;
+            high=mid-1;
+           }
+
+
         }
-        for(int i=1; i<=2000; i++){
-            if(hash[i]==0)k--;
-            if(k==0)return i;
+        return ans+k;
         }
-        return 0;
-       
-    }
 };
