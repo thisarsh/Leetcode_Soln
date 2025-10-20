@@ -4,9 +4,7 @@ public:
       
         int ans=0;
         for(auto it:operations){
-            if(it=="X++")ans++;
-            else if(it=="++X")++ans;
-            else if(it=="--X")--ans;
+            if(it=="X++"||it=="++X")ans++;
             else ans--;
 
         }
