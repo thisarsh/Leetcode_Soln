@@ -1,8 +1,8 @@
 class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
-        sort(nums.begin(),nums.end());
-        int low=1,high=nums[nums.size()-1],exp=INT_MAX;
+        // sort(nums.begin(),nums.end());
+        int low=1,high=*max_element(nums.begin(),nums.end()),exp=INT_MAX;
         while(low<=high){
             int mid=low+(high-low)/2;
             int sum=0;
