@@ -2,12 +2,13 @@ class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
         sort(nums.begin(),nums.end());
-        int low=1,mid,high=nums[nums.size()-1],exp=INT_MAX;
+        int low=1,high=nums[nums.size()-1],exp=INT_MAX;
         while(low<=high){
+            int mid=low+(high-low)/2;
             int sum=0;
-            mid=low+(high-low)/2;
+            
             for(auto it:nums){
-                sum+=(ceil(float(it)/mid));                
+                sum+=(it/mid)+((it%mid)!=0);        
             }
             // if(sum<=threshold)return mid;
             if(sum<=threshold){
