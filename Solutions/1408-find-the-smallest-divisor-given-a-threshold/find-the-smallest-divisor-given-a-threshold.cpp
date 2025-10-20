@@ -8,11 +8,11 @@ public:
             int sum=0;
             
             for(auto it:nums){
-                sum+=(it/mid)+((it%mid)!=0);        
+                sum+=(it+mid-1)/mid;        
             }
             // if(sum<=threshold)return mid;
             if(sum<=threshold){
-            exp=min(mid,exp);
+            // exp=min(mid,exp);
             high=mid-1;
             }
             else{
@@ -20,7 +20,7 @@ public:
                 low=mid+1;
          }
         }
-        return exp;
+        return low;
 
     }
 };
