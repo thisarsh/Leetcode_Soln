@@ -8,7 +8,8 @@ public:
             int sum=0;
             
             for(auto it:nums){
-                sum+=(it+mid-1)/mid;        
+                sum+=(it+mid-1)/mid;  
+                if (sum > threshold) break;       
             }
             // if(sum<=threshold)return mid;
             if(sum<=threshold){
@@ -16,8 +17,8 @@ public:
             high=mid-1;
             }
             else{
-
                 low=mid+1;
+                
          }
         }
         return low;
