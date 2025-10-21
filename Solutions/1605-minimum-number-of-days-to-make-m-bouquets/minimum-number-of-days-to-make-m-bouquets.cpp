@@ -2,9 +2,9 @@ class Solution {
 public:
     int minDays(vector<int>& nums, int m, int k) {
         int n=nums.size();
-        // long long req=m*k;
+         if (1LL*m*k>n)return -1;
         int ans=INT_MAX;
-        // if(req>n)return -1;
+   
         int low=*min_element(nums.begin(),nums.end());
         int high=*max_element(nums.begin(),nums.end());
         while(low<=high){
@@ -32,7 +32,6 @@ public:
 
 
         }
-        if(ans==INT_MAX)return -1;
         return ans;
 
 
