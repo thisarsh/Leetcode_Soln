@@ -19,6 +19,7 @@ public:
                 }
                 
                 if(ourdays>days)break;
+               
 
             }
             if(sum>0){
