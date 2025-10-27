@@ -7,7 +7,7 @@ public:
         while(row<=m){
             int col=n;
             if(matrix[row][col]==target)return 1;
-            else if(matrix[row][col]>target){
+            else if(matrix[row][col]>target && matrix[row][0]<=target){
                 if(binary_search(matrix[row].begin(),matrix[row].end(),target)) return 1;
             }
             row++;
