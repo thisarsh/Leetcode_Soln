@@ -39,7 +39,7 @@ public:
             }
             else high=mid-1;
         }
-        return  bs(target,mountainArr,high);
+        return  bs(target,mountainArr,low);
         
     }
 };
