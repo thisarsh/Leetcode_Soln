@@ -12,15 +12,12 @@ public:
       
        struct ListNode *fast=head; 
        struct ListNode *slow=head; 
-       int len=0;
-       while(fast!=NULL){
-        len++;
-        if(len>1 && fast==slow)return 1;
+       while(fast && fast->next){
 
-        if(fast->next!=NULL && fast->next->next!=NULL)fast=fast->next->next;
+        if( fast->next->next!=NULL)fast=fast->next->next;
         else return 0;
         slow=slow->next;
-
+        if(fast==slow)return 1;
        }
        return 0;
        
