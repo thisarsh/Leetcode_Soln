@@ -9,13 +9,16 @@ public:
      return sum;
     }
     bool isHappy(int n) {
+        int neww=0;
         unordered_set <int> st;
-        while(n>0){
+        while(1){  neww=sumofsq(n);
             if(n==1)return 1;
-            else {        
-                if(st.find(sumofsq(n))!=st.end() )return 0;
-                else st.insert(sumofsq(n));
-                n=sumofsq(n);
+           
+            else {       
+
+                if(st.find(neww)!=st.end() )return 0;
+                else st.insert(neww);
+                n=neww;
             }
         }
        return 1;
