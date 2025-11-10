@@ -17,7 +17,7 @@ public:
                 else{
                     sum=it;
                     myk++;
-                    // if(myk>k)break;
+                    if(myk>k)break;
                 }
             }
             if(sum>0)myk++;
