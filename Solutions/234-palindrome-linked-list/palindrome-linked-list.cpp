@@ -32,7 +32,7 @@ public:
         
         }
        while(head && back){
-        if(head==back)return 1;
+      
         if(head->val !=back->val)return 0;
         head=head->next;
         back=back->next;
