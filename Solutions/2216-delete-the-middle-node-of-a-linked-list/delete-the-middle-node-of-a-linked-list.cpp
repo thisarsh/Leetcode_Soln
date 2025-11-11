@@ -14,14 +14,16 @@ public:
 
         struct ListNode *fast=head;
         struct ListNode *slow=head;
+        struct ListNode *prev=NULL;
 
-        while(fast && fast->next && fast->next->next && fast->next->next->next){
+        while(fast && fast->next){
             fast=fast->next->next;
+            prev=slow;
             slow=slow->next;
 
         }
-       if(slow && slow->next) slow->next=slow->next->next;
-       else return NULL;
+        if(prev==NULL|| prev->next==NULL)return NULL;
+       prev->next=prev->next->next;
       
         return head;
 
