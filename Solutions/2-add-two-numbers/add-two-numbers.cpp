@@ -10,29 +10,50 @@
  */
 class Solution {
 public:
+    ListNode *newnode(ListNode *head,int data){
+        ListNode *nn=new ListNode(data,NULL);
+        if(head==NULL)return nn;
+        ListNode *temp=head;
+        while(temp->next){
+       temp=temp->next;
+        } temp->next=nn;
+
+        return head;
+    }
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* dummy = new ListNode(); // Dummy node to start
-        ListNode* curr = dummy;
-        int carry = 0;
+        ListNode *ans= NULL;
+        ListNode *anshead= NULL;
 
-        // Process until both lists and carry are done
-        while (l1 != nullptr || l2 != nullptr || carry) {
-            int sum = carry;
-            if (l1 != nullptr) {
-                sum += l1->val;
-                l1 = l1->next;
+        ListNode *up=l1,*down=l2;
+        int carry=0;
+        while(up && down){
+            int curr=up->val+down->val+carry;
+            ans=newnode(ans,curr%10);
+            if(anshead==NULL){
+                anshead=ans;
             }
-            if (l2 != nullptr) {
-                sum += l2->val;
-                l2 = l2->next;
-            }
-
-            // Update carry and current digit
-            carry = sum / 10;
-            curr->next = new ListNode(sum % 10);
-            curr = curr->next;
+            carry=curr/10;
+            up=up->next;
+            down=down->next;
         }
-
-        return dummy->next;
+        while(up){
+            int curr=up->val+carry;
+            ans=newnode(ans,curr%10);
+            carry=curr/10;
+            up=up->next;
+           
+        }
+        while(down){
+            int curr=down->val+carry;
+            ans=newnode(ans,curr%10);
+            carry=curr/10;
+            down=down->next;
+        }
+        if(carry>0){
+            ans=newnode(ans,carry);
+        }
+       
+       return anshead;
+        
     }
 };
