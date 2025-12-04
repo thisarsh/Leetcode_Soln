@@ -1,7 +1,7 @@
 class Solution {
 public:
     void f(  vector <vector <int>> &ans,vector<int>& candidates, 
-    int target,int i, vector <int> nums,int sum){
+    int target,int i, vector <int> &nums,int sum){
         if(sum==target){
             ans.push_back(nums);
             return ;
