@@ -1,37 +1,49 @@
 class Solution {
 public:
-    vector<int> majorityElement(vector<int>& nums) {
-        //moores voting algorithm
-        int n=nums.size(),el1=INT_MAX,el2=INT_MIN,count1=0,count2=0;
-        for(int i=0; i<n; i++){
-            if(count1==0 && el2!=nums[i]){
-                el1=nums[i];
+    vector<int> majorityElement(vector<int>& arr) {
+     int n=arr.size();
+        int cand1=arr[0],cand2;
+        int one=0,two=0;
+        bool once=0;
+        for(auto it:arr){
+    
+            
+            if(it!=cand1 && once==0){
+                cand2=it;
+                once=1;
             }
-            else if(count2==0 && el1!=nums[i]){
-                el2=nums[i];
+            
+            
+            if(it==cand1) one++;
+            else if(it==cand2) two++;
+            
+            else if(one==0 ){
+                cand1=it;
+                one=1;
             }
-            if(nums[i]==el1){
-                count1++;
+            else if (two==0 ){
+                cand2=it;
+                two=1;
             }
-           else if(nums[i]==el2){
-                count2++;
+            
+            else{
+                one--;
+                two--;
             }
-            else {
-                count1--;
-                count2--;
-            }
-
+            
+            
         }
-        int fel1=0,fel2=0;
-        for(auto it:nums){
-            if(it==el1)fel1++;
-            else if(it==el2)fel2++;
-
+        one=two=0;
+        vector <int> ans;
+        for(auto it:arr){
+            if(it==cand1)one++;
+            else if(it==cand2)two++;
         }
-        if( fel1>n/3 && fel2>n/3)return {el1,el2};
-        else if(fel1>n/3)return {el1};
-        else if(fel2>n/3)return {el2};
-        else return {};
+        if(two>n/3)ans.push_back(cand2);
+        if(one>n/3)ans.push_back(cand1);
+        // sort(ans.begin(),ans.end());
+        return ans;
+
      
         
     }
