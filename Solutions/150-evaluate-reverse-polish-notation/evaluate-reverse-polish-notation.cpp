@@ -5,32 +5,21 @@ public:
      int n=tokens.size();
      for(auto &it:tokens){
         int a,b;
+        if(it=="+"|| it=="-"|| it=="*"|| it=="/"){
+            a=st.top();st.pop();
+            b=st.top();st.pop();
+        }
         if(it=="+"){
-            a=st.top();
-            st.pop();
-            b=st.top();
-            st.pop();
             st.push(a+b);
         }
        else if(it=="-"){
-            a=st.top();
-            st.pop();
-            b=st.top();
-            st.pop();
             st.push(b-a);
         }
         else if(it=="*"){
-            a=st.top();
-            st.pop();
-            b=st.top();
-            st.pop();
             st.push(a*b);
         }
        else if(it=="/"){
-            a=st.top();
-            st.pop();
-            b=st.top();
-            st.pop();
+
             st.push(b/a);
         }
         else st.push(stoi(it));
