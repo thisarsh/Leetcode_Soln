@@ -1,24 +1,23 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        vector <int> hash(256,0);
-        // string temp="";
-        int ans=0;
-        int n=s.size();
+        int n=s.size(),ans=0;
+        vector <int> hash (256,0);
         int l=0,r=0;
         while(r<n){
-             hash[s[r]]++;    
-                while(hash[s[r]]>1){
-                    hash[s[l]]--;
-                    l++;
-                }
-
-           
-             ans=max(ans,r-l+1);
-           
+          if(hash[s[r]]==0){
+            ans=max(ans,r-l+1);
+            hash[s[r]]=1;
             r++;
+          }
+          else{
+            hash[s[l]]=0;
+            l++;
+          }
+
         }
-        
+        // ans=max(r-l+1,ans);
         return ans;
+        
     }
 };
