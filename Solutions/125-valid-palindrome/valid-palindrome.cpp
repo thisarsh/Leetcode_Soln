@@ -1,14 +1,21 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int n=s.size(),i=0,j;
-        j=n-1;
-        while(i<=j){
-            if(!((s[i]>='0' && s[i]<='9')|| tolower(s[i])<='z' && (tolower(s[i])>='a'))) {i++;continue;}
-        if(!((s[j]>='0' && s[j]<='9')|| tolower(s[j])<='z' && (tolower(s[j])>='a'))) {j--;continue;}
-        if(tolower(s[i])!=tolower(s[j])) return 0;
-    i++;
-    j--;  
-    }return 1;
+        int n=s.size();
+        int l=0,r=n-1;
+        while(l<r){
+
+           while(l<r && !((s[l]<='z' && s[l]>='a') || (s[l]<='Z' && s[l]>='A') || ( s[l]>='0' && s[l]<='9'))) l++;
+           while(l<r && !((s[r]<='z' && s[r]>='a' )||( s[r]<='Z' && s[r]>='A') || ( s[r]>='0' && s[r]<='9'))) r--;
+            
+            if(tolower(s[l])!= tolower(s[r]))return 0;
+            l++;
+            r--;
+
+
+        }
+        return 1;
+        
     }
+
 };
