@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
-        int zero=0, one=0, n=nums.size(),ans=0,sum=0;
+        int n=nums.size(),ans=0,sum=0;
         unordered_map <int,int> mpp;
         mpp[0]=-1;
         for(int i=0; i<n; i++){ 
