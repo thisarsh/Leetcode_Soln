@@ -1,1 +1,1 @@
-<h2>maximum-product-subarray Notes</h2><hr>[ Time taken: 17 hrs 34 m 33 s ]
+<h2>maximum-product-subarray Notes</h2><hr>[ Time taken: 2hrs 0m 44s ]
