@@ -1,19 +1,22 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int n=nums.size(),count1=0,count0=0,count2=0;
-        count0=count(nums.begin(),nums.end(),0);
-        count1=count(nums.begin(),nums.end(),1);
-        count2=count(nums.begin(),nums.end(),2);
-        for(auto &it:nums){
-            if(count0>0){
-                it=0;
-                count0--;
+        int n=nums.size();
+        int l=0,m=0,h=n-1;
+        for(int i=0; i<n;  i++){
+            if(nums[m]==0){
+                swap(nums[l++],nums[m++]);
             }
-            else if(count1>0){
-                it=1;count1--;
+            else if(nums[m]==1){
+                m++;//0 n 2 already sort ho chuke h no need to sort 1
             }
-            else {it=2;count2--;}
-        }
+            else {
+                swap(nums[h--],nums[m]);
+                
+            }
+
+        }     
+        // return ans; 
+
     }
 };
