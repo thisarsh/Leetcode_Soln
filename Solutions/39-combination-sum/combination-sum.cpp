@@ -12,9 +12,9 @@ public:
         if(i==candidates.size()) return;
         curr.push_back(candidates[i]);
         f(candidates,target,i,sum+candidates[i],ans,curr);
-        sum-=curr.back();
+        // sum-=curr.back();
         curr.pop_back();
-        f(candidates,target,i+1,sum+candidates[i],ans,curr);
+        f(candidates,target,i+1,sum,ans,curr);
         
 
     }
