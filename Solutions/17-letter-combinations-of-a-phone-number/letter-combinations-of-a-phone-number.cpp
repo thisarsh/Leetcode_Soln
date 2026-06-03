@@ -1,21 +1,20 @@
 class Solution {
 public:
-    void gen(vector <string> &ans,string digits,string s,int i,unordered_map <char,string> &mpp){
-        if(s.size()==digits.size()){
-            ans.push_back(s);
-            return ;
+    void f(vector <string > &ans, unordered_map <char,string> &mpp, int i,string str,
+    string &dig ){
+        if(str.size()==dig.size()){
+            ans.push_back(str);
+            return;
         }
-        for(auto it:mpp[digits[i]]){
-            gen(ans,digits,s+it,i+1,mpp);
-        }
-        // gen(ans,digits,s,/)
+        for(auto it:mpp[dig[i]]){
+            f(ans,mpp,i+1,str+it,dig);
 
 
-        
+        }
+
     }
     vector<string> letterCombinations(string digits) {
-        vector <string> ans;
-        unordered_map<char, string> mpp= 
+           unordered_map<char, string> mpp= 
         {
             {'2', "abc"},
             {'3', "def"},
@@ -26,7 +25,9 @@ public:
             {'8', "tuv"},
             {'9', "wxyz"}
         };
-        gen(ans,digits,"" ,0,mpp);
+        vector <string > ans;
+    
+        f(ans,mpp,0,"",digits);
         return ans;
     }
 };
