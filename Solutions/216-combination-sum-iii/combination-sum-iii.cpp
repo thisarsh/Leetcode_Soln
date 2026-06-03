@@ -1,6 +1,7 @@
 class Solution {
 public:
-    void f(vector <vector <int>> &ans,vector <int> &curr, vector <int> &nums, int sum, int  i,int k,int n ){
+    void f(vector <vector <int>> &ans,vector <int> &curr, vector <int> &nums, int sum, 
+    int i,int &k,int &n ){
         if(sum==n && curr.size()==k){
             ans.push_back(curr);
             return;
