@@ -10,20 +10,30 @@
  * };
  */
 class Solution {
-    int depth(TreeNode *root,int count){
-        if(!root)return 0;
-        int ldepth=depth(root->left ,count+1);
-        int rdepth=depth(root->right ,count+1);
+public:
+    void dfs(TreeNode *node,int curr, int &ans){
+        if(!node){
+            ans=max(ans,curr);
+            return;
+        }
+        dfs(node->left,curr+1,ans);
+        dfs(node->right,curr+1,ans);
 
-        return max(ldepth,rdepth)+1;
-
-
-        
 
     }
-public:
     int maxDepth(TreeNode* root) {
-        return depth(root,0);
+        int ans=0;
+        dfs(root,0,ans);
+        return ans;
         
     }
 };
+//         1
+//       /   \
+//      2     3
+//     /     / \
+//    4     5   6
+//         /
+//        7
+//       /
+//      8
