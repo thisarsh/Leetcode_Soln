@@ -1,34 +1,43 @@
 class Solution {
 public:
-    bool isPalindrome(string t) {
-        int n = t.size();
-        for (int i = 0; i <= n / 2; i++) {
-            if (t[i] != t[n - i - 1])
-                return 0;
+    bool p(string &s){
+        int n=s.size();
+        if(s.empty())return 0;
+        for(int i=0; i<=n/2; i++){
+            if(s[i]!=s[n-i-1])return 0;
         }
         return 1;
     }
-    void f(vector<vector<string>>& ans, vector<string>& temp, string s, int ind) {
-
-        if (ind == s.size()) {
-            ans.push_back(temp);
+    void f(vector <vector <string>> &ans, vector <string> & curr, string s,int i){
+        int n=s.size();
+        if(i==n){
+            ans.push_back(curr);
             return;
         }
 
-        for (int i = ind; i < s.size(); i++) {
-            string curr = s.substr(ind, i-ind + 1);
 
-            if (isPalindrome(curr)) {
-                temp.push_back(curr);
-                f(ans, temp, s, i + 1);
-                temp.pop_back();
-            }
+     for(int j=i; j<n; j++){
+        string temp=s.substr(i, 1+j-i);
+        if(p(temp)){
+          curr.push_back(temp);
+          f(ans,curr,s,j+1);
+          curr.pop_back();
+
         }
+     
+        
+     }
+
+
+       
+
     }
     vector<vector<string>> partition(string s) {
-        vector<vector<string>> ans;
-        vector<string> temp;
-        f(ans, temp, s, 0);
+        vector <vector <string>> ans;
+        vector <string> curr;
+        f(ans,curr,s,0);
         return ans;
+
+
     }
 };
